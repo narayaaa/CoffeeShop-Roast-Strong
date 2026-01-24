@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roast & Strong</title>
     <link rel="stylesheet" href="style.css">
-
+    <!-- AlphineJS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- App -->
+     <script src="src/app.js" defer></script>
     <!--Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,7 +41,7 @@
  <!-- Shopping Cart Start -->
   <div class="shopping-cart">
     <div class="cart-item">
-        <img src="img/brownies.jpg" alt="Product1">
+        <img src="img/1.jpg" alt="Product1">
         <div class="item-detail">
         <h3>Product 1</h3>
         <div class="item-price">IDR 15K</div>
@@ -46,7 +49,7 @@
         <i data-feather="trash-2" class="remove-item"></i>
     </div>
     <div class="cart-item">
-        <img src="img/brownies.jpg" alt="Product1">
+        <img src="img/1.jpg" alt="Product1">
         <div class="item-detail">
         <h3>Product 1</h3>
         <div class="item-price">IDR 15K</div>
@@ -54,7 +57,7 @@
         <i data-feather="trash-2" class="remove-item"></i>
     </div>
     <div class="cart-item">
-        <img src="img/brownies.jpg" alt="Product1">
+        <img src="img/1.jpg" alt="Product1">
         <div class="item-detail">
         <h3>Product 1</h3>
         <div class="item-price">IDR 15K</div>
@@ -118,20 +121,21 @@ Dari biji pilihan hingga proses roasting yang presisi, setiap cangkir dibuat unt
     <!--Menu Section End-->
 
     <!-- Product Section Start -->
-    <section class="products" id="products">
+    <section class="products" id="products"x-data="products()" >
     <h2><span>Produk Unggulan</span> Kami</h2>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam omnis quidem dignissimos dolorum, possimus in?</p>
     <div class="row">
+    <template x-for="item in items" :key="item.id">
     <div class="product-card">
     <div class="product-icons">
     <a href="#"><i data-feather="shopping-cart"></i></a>
     <a href="#item-detail-modal" class="item-detail-button"><i data-feather="eye"></i></a>
     </div>
     <div class="product-image">
-    <img src="img/brownies.jpg" alt="Product1">
+    <img :src="'img/' + item.img" :alt="item.name">
     </div>
     <div class="product-content">
-    <h3>Chocolate Brownies</h3>
+    <h3 x-text="item.name"></h3>
     <div class="product-stars">
     <i data-feather="star" class="star-full"></i>
     <i data-feather="star" class="star-full"></i>
@@ -139,109 +143,12 @@ Dari biji pilihan hingga proses roasting yang presisi, setiap cangkir dibuat unt
     <i data-feather="star" class="star-full"></i>
     <i data-feather="star"></i>
     </div>
-<div class="product-price">IDR 15K <span>IDR 25K</span></div>
+<div class="product-price">
+  IDR <span x-text="item.price.toLocaleString('id-ID')"></span>
+</div>
     </div>
     </div>
-    <div class="product-card">
-    <div class="product-icons">
-    <a href="#"><i data-feather="shopping-cart"></i></a>
-    <a href="#item-detail-modal" class="item-detail-button"><i data-feather="eye"></i></a>
-    </div>
-    <div class="product-image">
-    <img src="img/croissant.jpg" alt="Product1">
-    </div>
-    <div class="product-content">
-    <h3>Butter Croissant</h3>
-    <div class="product-stars">
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    </div>
-<div class="product-price">IDR 17K <span>IDR 20K</span></div>
-    </div>
-    </div>
-    <div class="product-card">
-    <div class="product-icons">
-    <a href="#"><i data-feather="shopping-cart"></i></a>
-    <a href="#item-detail-modal" class="item-detail-button"><i data-feather="eye"></i></a>
-    </div>
-    <div class="product-image">
-    <img src="img/tiramisu.jpg" alt="Product1">
-    </div>
-    <div class="product-content">
-    <h3>Tiramisu</h3>
-    <div class="product-stars">
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    </div>
-<div class="product-price">IDR 25K <span>IDR 30K</span></div>
-    </div>
-    </div>
-    <div class="product-card">
-    <div class="product-icons">
-    <a href="#"><i data-feather="shopping-cart"></i></a>
-    <a href="#item-detail-modal" class="item-detail-button"><i data-feather="eye"></i></a>
-    </div>
-    <div class="product-image">
-    <img src="img/sandwitch.jpg" alt="Product1">
-    </div>
-    <div class="product-content">
-    <h3>Mixed Sandwitch</h3>
-    <div class="product-stars">
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star"></i>
-    <i data-feather="star"></i>
-    </div>
-<div class="product-price">IDR 30K</div>
-    </div>
-    </div>
-    <div class="product-card">
-    <div class="product-icons">
-    <a href="#"><i data-feather="shopping-cart"></i></a>
-    <a href="#item-detail-modal" class="item-detail-button"><i data-feather="eye"></i></a>
-    </div>
-    <div class="product-image">
-    <img src="img/ice cream.jpg" alt="Product1">
-    </div>
-    <div class="product-content">
-    <h3>Ice Cream</h3>
-    <div class="product-stars">
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    </div>
-<div class="product-price">IDR 10K</div>
-    </div>
-    </div>
-    <div class="product-card">
-    <div class="product-icons">
-    <a href="#"><i data-feather="shopping-cart"></i></a>
-    <a href="#item-detail-modal" class="item-detail-button"><i data-feather="eye"></i></a>
-    </div>
-    <div class="product-image">
-    <img src="img/coffee beans.jpg" alt="Product1">
-    </div>
-    <div class="product-content">
-    <h3>Coffee Beans</h3>
-    <div class="product-stars">
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star-full"></i>
-    <i data-feather="star" class="star"></i>
-    </div>
-<div class="product-price">IDR 35 <span>IDR 50K</span></div>
-    </div>
-    </div>
+    </template>
     </div>
     </section>
     <!-- Product Section End -->
@@ -318,8 +225,11 @@ Dari biji pilihan hingga proses roasting yang presisi, setiap cangkir dibuat unt
     </div>
 <!-- Model Box Item Detail End -->
     <script>
-      feather.replace();
-    </script>
+document.addEventListener('DOMContentLoaded', () => {
+    feather.replace()
+})
+</script>
+
 
 <script src="script.js"></script>
 </body>
