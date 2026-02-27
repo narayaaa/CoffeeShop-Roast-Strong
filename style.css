@@ -221,6 +221,11 @@ body{
     margin: 1rem auto;
     cursor: pointer;
 }
+.form-container .checkout-button.disabled{
+    background-color: #666;
+    cursor: not-allowed;
+    
+}
 
 /*Hero Section*/
 .hero{
@@ -655,4 +660,30 @@ footer .credit a{
     html{
         font-size: 55%;
     }
+    .menu p, .contact p, .products p{
+    text-align: center;
+    max-width: 30rem;
+    margin: auto;
+    font-size: 1.25rem;
+    font-weight: 100;
+    line-height: 1.6;
+}
+    .menu .row .menu-card-img{
+    border-radius: 50%;
+    width: 55%;
+    }
+    .menu .row .menu-card .menu-card-title{
+    font-size: 2rem;
+    }
+    .menu .row .menu-card .menu-card-price{
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    }
+.products .row{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+    margin-top: 4rem;
+}
+
 }
